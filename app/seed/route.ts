@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import postgres from 'postgres';
 import {customers, invoices, revenue, users} from '../lib/placeholder-data';
 
-const sql = postgres(process.env.POSTGRES_URL!, {ssl: 'require'});
+const sql = postgres(process.env.POSTGRES_URL!);
 
 async function seedUsers() {
     await sql`CREATE
@@ -135,13 +135,12 @@ async function seedRevenue() {
 
 export async function GET() {
     try {
-        const result = await sql.begin((sql) => [
+        await sql.begin(() => [
             seedUsers(),
             seedCustomers(),
             seedInvoices(),
             seedRevenue(),
         ]);
-
         return Response.json({message: 'Database seeded successfully'});
     } catch (error) {
         return Response.json({error}, {status: 500});
