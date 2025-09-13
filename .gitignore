@@ -37,3 +37,6 @@ next-env.d.ts
 
 # ide
 .idea
+
+# 数据库文件
+postgresql

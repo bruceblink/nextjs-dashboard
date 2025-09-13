@@ -30,3 +30,9 @@ pnpm dev
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/bruceblink/nextjs-dashboard)  
 
+### 默认的登录密码，大家记得自己更改
+
+    email: 'user@nextmail.com',
+    password: '123456',
+
+登录用户的配置在[placeholder-data.ts](app/lib/placeholder-data.ts)
